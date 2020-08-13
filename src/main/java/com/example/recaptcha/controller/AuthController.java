@@ -31,15 +31,15 @@ public class AuthController {
 
 				if(loginMember != null) {
 					form.setMember(loginMember);
-					form.setStatus("0");	//	·Î±×ÀÎ ¼º°ø
+					form.setStatus("0");	//	ë¡œê·¸ì¸ ì„±ê³µ
 				} else {
-					form.setStatus("1");	//	·Î±×ÀÎ ½ÇÆĞ(È¸¿øÁ¤º¸ X)
+					form.setStatus("1");	//	ë¡œê·¸ì¸ ì‹¤íŒ¨(íšŒì› ì •ë³´ ì—†ìŒ)
 				}
 			} else {
-				form.setStatus("300");		//	reCAPTCHA ÀÎÁõ ½ÇÆĞ
+				form.setStatus("300");		//	reCAPTCHA ì¸ì¦ ì‹¤íŒ¨
 			}
 		} catch (IOException e) {
-			form.setStatus("200");			//	reCAPTCHA ÀÎÁõ ¿À·ù
+			form.setStatus("200");			//	reCAPTCHA ì¸ì¦ ì„±ê³µ
 			return form;
 		}
 
