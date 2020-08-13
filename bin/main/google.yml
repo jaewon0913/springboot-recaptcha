@@ -1,0 +1,5 @@
+google:
+  recaptcha:
+    url: https://www.google.com/recaptcha/api/siteverify
+    key:
+      secret: 6LfyorsZAAAAAE1-hySGbqFiJRLYhbUA7gHVmFNR

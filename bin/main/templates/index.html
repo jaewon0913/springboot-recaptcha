@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div align="center" style="margin-top: 150px;">
+    <h1>Springboot + Recaptcha</h1>
+    <div>
+    <input type = "text" id="loginId" name="memberId" placeholder="a@b.c" style="width:250px; height:30px;">
+</div>
+    <br>
+    <div>
+        <input type = "password" id="loginPw" name="memberPw" placeholder="비밀번호" style="width:250px; height:30px;">
+    </div>
+    <br>
+    <div id="g-recaptcha"></div>
+    <br>
+    <div>
+        <input type="button" class="disabled-btn" id="loginBtn" value="로그인" disabled>
+    </div>
+    <br>
+    <div style="border:1px solid">
+        <p>아이디: testId@test.com 비밀번호: test1234</p>
+        <p>아이디: adminId@admin.com 비밀번호: admin1234</p>
+        <p>아이디: userId@user.com 비밀번호: user1234</p>
+    </div>
+</div>
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/auth.js?ver=1"></script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+<script type="text/javascript">
+    //	화면 시작 시 g-recaptcha 생성
+    var onloadCallback = function() {
+        grecaptcha.render('g-recaptcha', {
+            'sitekey' : '6LfyorsZAAAAAAA73oP-b97amXX4ZNGzLvRV7GSK',
+            'callback' : verifyCallback,
+            'expired-callback' : expiredCallback,
+        });
+    };
+
+    //	인증 성공 시
+    var verifyCallback = function(response) {
+        $("#loginBtn").removeClass("disabled-btn");
+        $("#loginBtn").attr("disabled", false);
+    };
+
+    //	인증 만료 시
+    var expiredCallback = function(response) {
+        $("#loginBtn").addClass("disabled-btn");
+        $("#loginBtn").attr("disabled", true);
+    }
+
+    //	g-recaptcha 리셋
+    var resetCallback = function() {
+    	$("#loginBtn").addClass("disabled-btn");
+        $("#loginBtn").attr("disabled", true);
+        grecaptcha.reset();
+    }
+
+</script>
+</body>
+</html>

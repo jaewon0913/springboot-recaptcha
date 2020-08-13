@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+</head>
+<body>
+	<div align="center" style="margin-top: 150px;">
+		<h1>로그인 성공</h1>
+		
+		<div>
+			아이디 : <span th:text="${member.memberId}"></span><br/>
+			비밀번호 : <span th:text="${member.memberPw}"></span><br/>
+			이름: <span th:text="${member.name}"></span><br/>
+			성별 : <span th:text="${member.gender}"></span><br/>
+			나이 : <span th:text="${member.age}"></span><br/>
+			직업 : <span th:text="${member.job}"></span>
+		</div>
+	</div>
+</body>
+</html>
